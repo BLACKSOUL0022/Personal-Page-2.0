@@ -12,8 +12,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Ajustes de la cámara
-camera.position.set(0, 0, 35); // Posición de la cámara (x, y, z)
-camera.lookAt(1, 0, 0); // Dirección en la que mira la cámara (x, y, z)
+camera.position.set(0, 0, 80); // Posición de la cámara (x, y, z)
+camera.lookAt(-12, -29.5, 0); // Dirección en la que mira la cámara (x, y, z)
 camera.fov = 60; // Campo de visión en grados
 camera.updateProjectionMatrix(); // Actualizar la matriz de proyección
 
@@ -56,10 +56,12 @@ loader.load(
             // Función de animación del mixer
             function animate() {
                 requestAnimationFrame(animate);
-                mixer.update(0.004); // Actualizar el mixer con un pequeño delta de tiempo
+                mixer.update(0.0035); // Actualizar el mixer con un pequeño delta de tiempo
                 composer.render(); // Usar el compositor en lugar de renderer
             }
-
+            const light = new THREE.DirectionalLight(0xFEDF72, 0x05);
+            light.position.set(0, 1, 1);
+            scene.add(light);
             animate();
         }
 
@@ -68,8 +70,8 @@ loader.load(
             if (child.isMesh) {
                 child.material = new THREE.MeshStandardMaterial({
                     color: 0xFFFFFF, // Color del modelo
-                    emissive: 0xFEDF72, // Color de la emisión
-                    emissiveIntensity: 1 // Intensidad de la emisión
+                    emissive: 0xFEEF9F, // Color de la emisión
+                    emissiveIntensity: 0.2 // Intensidad de la emisión
                 });
             }
         });
