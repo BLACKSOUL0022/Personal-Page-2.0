@@ -3,7 +3,6 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
-import { FakeGlowMaterial } from '.FakeGlowMaterial.js'
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -13,20 +12,31 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 //scene.background = new THREE.Color(none);
 document.body.appendChild(renderer.domElement);
 
-renderer.setSize( window.innerWidth, window.innerHeight );
-renderer.setAnimationLoop( animate );
-document.body.appendChild( renderer.domElement );
-
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+const bgloader = new THREE.TextureLoader();
+bgloader.load("./images/bg2.jpeg", function(texture) {
+    scene.background = texture;
+});
 
 // Ajustes de la cámara
-camera.position.set(0, 0, 20); // Posición de la cámara (x, y, z)
-camera.lookAt(0, 0, 0); // Dirección en la que mira la cámara (x, y, z)
+camera.position.set(0, 0, 80); // Posición de la cámara (x, y, z)
+camera.lookAt(-12, -29.5, 0); // Dirección en la que mira la cámara (x, y, z)
 camera.fov = 60; // Campo de visión en grados
 camera.updateProjectionMatrix(); // Actualizar la matriz de proyección
+
+// Configurar EffectComposer y UnrealBloomPass
+const renderScene = new RenderPass(scene, camera);
+
+const bloomPass = new UnrealBloomPass(
+    new THREE.Vector2(window.innerWidth, window.innerHeight),
+    1,  // Strength
+    0.1,  // Radius
+    0  // Threshold
+);
+bloomPass.renderToScreen = true;
+
+const composer = new EffectComposer(renderer);
+composer.addPass(renderScene);
+composer.addPass(bloomPass);
 
 const loader = new GLTFLoader();
 loader.load(
@@ -53,7 +63,7 @@ loader.load(
             function animate() {
                 requestAnimationFrame(animate);
                 mixer.update(0.0035); // Actualizar el mixer con un pequeño delta de tiempo
-
+                composer.render(); // Usar el compositor en lugar de renderer
             }
             const light = new THREE.DirectionalLight(0xFEDF72, 0x05);
             light.position.set(0, 1, 1);
@@ -80,10 +90,15 @@ loader.load(
     }
 );
 
-
 function animate() {
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
-	renderer.render( scene, camera );
-    renderer.setClearColor(0x000000, 0); // Color negro y transparencia
+    requestAnimationFrame(animate);
+    composer.render(); // Usar el compositor en lugar de renderer
 }
+animate();
+
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    composer.setSize(window.innerWidth, window.innerHeight); // Ajustar el tamaño del compositor
+});

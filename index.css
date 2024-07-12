@@ -1,17 +1,28 @@
 body { 
     margin: 0;
     padding: 0;
-    background-color: #000;
+    /* background-color: #000; */
     color: #fff;
     position: relative;
+    background-color: #010113;
 }
 /* Smartphones */
+header {
+    position: absolute;
+}
 #container {
     position: absolute;
     height: auto;
     width: 100vw;
-    
+    z-index: 100;
+   /* background-image: linear-gradient(#000, #00011A); */
 }
+    #foxito {
+        height: 200px;
+        width: 100vw;
+        outline: #333 1px solid;
+    }
+
     #main_img {
         height: 200px;
         width: 200px;
@@ -27,9 +38,9 @@ body {
         border-radius: 25px;
         padding-inline: 10%;
         padding-top: 20px;
+        padding-bottom: 100px;
         box-sizing: border-box;
-        outline: 1px solid #fff;
-        background-color: rgba(0,0,0,0.3);
+        background-color: rgba(256,256, 256, 0.04);
     }
         .title {
             display: flex;
@@ -39,8 +50,24 @@ body {
         .section_content {
             margin-top: 100px;
             font-size: 30px;
+            width: 100%;
+            margin-bottom: 0px;
         }
         .section_content2 {
             margin-top: 20px;
             font-size: 30px;
+            margin-bottom: 0px;
+        }
+
+    #footer_container {
+        height: 200px;
+        width: 100vw;
+        background-color: #000;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+    }
+        #footer_text {
+            margin: 20px;
+            color: #333;
         }
