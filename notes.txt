@@ -1,3 +1,6 @@
 const light = new THREE.HemisphereLight(0xffffff, 0xffffff);
 light.position.set(0, 0, 0);
 scene.add(light);
+
+
+and (orientation: portrait)
