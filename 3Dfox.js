@@ -1,8 +1,11 @@
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+// Import the THREE.js library
+import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
+// To allow for importing the .gltf file
+import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+// To allow for post-processing effects
+import { EffectComposer } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/UnrealBloomPass.js";
 
 const container = document.getElementById('foxito');
 
@@ -62,7 +65,7 @@ loader.load(
                 composer.render(); // Usar el compositor en lugar de renderer
             }
 
-            const light = new THREE.DirectionalLight(0xFEDF72, 5);
+            const light = new THREE.DirectionalLight(0x994428, 15);
             light.position.set(0, 1, 1);
             scene.add(light);
             animate();
@@ -72,9 +75,9 @@ loader.load(
         model.traverse((child) => {
             if (child.isMesh) {
                 child.material = new THREE.MeshStandardMaterial({
-                    color: 0xFFFFFF, // Color del modelo
-                    emissive: 0xFEEF9F, // Color de la emisión
-                    emissiveIntensity: 0.2 // Intensidad de la emisión
+                    color: 0xCC6628, // Color del modelo
+                    emissive: 0xDD6628, // Color de la emisión
+                    emissiveIntensity: 0.8 // Intensidad de la emisión
                 });
             }
         });
