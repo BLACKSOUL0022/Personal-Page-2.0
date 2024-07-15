@@ -4,3 +4,15 @@ scene.add(light);
 
 
 and (orientation: portrait)
+
+
+    .fox_head_div{
+        position: fixed;
+        height: 800px;
+        width: 600px;
+        min-width: 400px;
+        z-index: 1;
+        margin-top: -900px;
+        margin-inline: auto;
+        background-color: #444;
+    }

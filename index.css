@@ -1,5 +1,8 @@
 /* General */
-* { margin: 0; padding: 0; }
+* { margin: 0; 
+    padding: 0;
+    text-align:justify;
+}
 
 body { 
     color: #fff;
@@ -36,25 +39,7 @@ body {
         padding-top: 50px;
         box-sizing: border-box;
         font-size: 50px;
-    }
-#container {
-    position: absolute;
-    top: 170px;
-    margin-inline: auto;
-    height: auto;
-    width: 100vw;
-    z-index: 400;
-    background-color: rgba(1,1,1,0.5);
-}
-    .fox_head_div{
-        position: fixed;
-        height: 800px;
-        width: 600px;
-        min-width: 400px;
-        z-index: 1;
-        margin-top: -100px;
-        margin-inline: auto;
-        background-color: #444;
+        text-shadow: 0 0 5px #ffffff;
     }
     .bubbles {
         position: absolute;
@@ -92,6 +77,18 @@ body {
             transform: translateY(0vh) scale(1);
         }
     }
+
+#container {
+    position: absolute;
+    top: 170px;
+    margin-inline: auto;
+    height: auto;
+    width: 100vw;
+    z-index: 400;
+    background-color: rgba(1,1,1,0.5);
+}
+
+
     #main_img {
         height: 200px;
         width: 200px;
@@ -127,7 +124,6 @@ body {
             width: 100%;
             margin-bottom: 0px;
             display: flex;
-            text-align:justify;
         }
         .section_content2 {
             margin-top: 20px;
@@ -144,15 +140,80 @@ body {
             border: none;
             margin-top: 50px;
             margin-inline: calc(50% - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+            #contact_btn:hover {
+                box-shadow: 0 0 15px #ffffff;
+                text-shadow: 0 0 5px #ffffff;
+            }
+            #contact_btn:active {
+                background-color: #333;
+                margin-top: 55px;
+                margin-bottom: -5px;
+            }
+    #first_section{
+        height: 60vh;
+    }
+        .proyects {
+            height: 800px;
+            width: 90vw;
+            margin-inline: -5vw;
+
+            display: block;
+            box-sizing: border-box;
+            padding: 25px;
+        }
+            .temp_img_div {
+                width: 75vw;
+                height: calc(80vw * 0.4);
+                background-color: #333;
+                margin-inline: auto;
+            }
+            .proyect_text {
+                height: auto;
+                width: 70vw;
+                margin-top: 50px;
+                margin-inline: auto;
+                font-size: 30px;
+            }
+        #skills {
+            height: auto;
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        #skills_title {
+            margin-bottom: 20px;
+            min-width: 100%;
+        }
+        .tec_img_container {
+            height: 250px;
+            width: 200px;
+            margin: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 25px #fff;
+            border-radius: 10px;
+        }
+            .tec_img {
+                height: 150px;
+                width: 150px;
+                margin: 25px;
+            }
             
-        }
-        #contact_btn:active {
-            background-color: #333;
-            margin-top: 55px;
-            margin-bottom: -5px;
-        }
+            .tec_name {
+                color: #000;
+                height: 25px;
+                width: 100%;
+                text-align: center;
+                font-size: 30px;
+                font-family:'Times New Roman', Times, serif;
+            }
+
     #footer_container {
-        height: 200px;
+        height: 400px;
         width: 100vw;
         background-color: #fff;
         display: flex;
@@ -162,6 +223,7 @@ body {
         #footer_text {
             margin: 20px;
             color: #333;
+            font-size: 30px;
         }
 
 
@@ -173,15 +235,6 @@ body {
         background-color: rgba(1,1,1,0);
         backdrop-filter: blur(5px);
     }
-        .fox_head_div{
-            position: fixed;
-            height: 800px;
-            width: 600px;
-            z-index: 1;
-            margin-top: -1000px; /*Arreglar mañana */
-            margin-left: calc(50vw - 300px);
-            background-color: rgba(1,1,1,0);
-        }
             #fox_div {
                 margin-left: calc(50% - 256px);
                 margin-top: 100px;
@@ -200,8 +253,8 @@ body {
             background: none;
             backdrop-filter: blur(0px);
         }
-        .section_:first-child {
-            height: calc(100vh - 170px);
+        #first_section {
+            min-height: calc(100vh -170px);
         }
             .title {
                 text-align: center;
