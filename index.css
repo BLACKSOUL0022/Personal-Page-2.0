@@ -61,7 +61,7 @@ body {
         0 0 50px #4fc3dc, 
         0 0 50px #4fc3dc;
         animation: animate 20s linear infinite;
-        animation-duration: calc(1000s / var(--i));
+        animation-duration: calc(800s / var(--i));
     }
     .bubbles span:nth-child(even) {
         background-color: rgba(255, 255, 255, 100);
@@ -71,7 +71,7 @@ body {
     }
     @keyframes animate {
         0% {
-            transform: translateY(380vh) scale(0);
+            transform: translateY(300vh) scale(0);
         }
         100% {
             transform: translateY(0vh) scale(1);
