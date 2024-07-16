@@ -120,12 +120,12 @@ body {
             }
             #contact_btn:active {
                 background-color: #333;
-                margin-top: 55px;
+                margin-top: 160px;
                 margin-bottom: -5px;
                 text-shadow: 0 0 5px #ffffff;
             }
     #first_section {
-        height: calc(80vh - 170px);
+        height: 80vh;
     }
         .section_content {
             margin-top: 100px;
@@ -203,7 +203,6 @@ body {
         transform: translateY(0vh) scale(1);
     }
 }
-
 @keyframes showing_elements {
     from {
         opacity: 0;
