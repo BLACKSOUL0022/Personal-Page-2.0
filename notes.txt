@@ -16,3 +16,8 @@ and (orientation: portrait)
         margin-inline: auto;
         background-color: #444;
     }
+
+    #fox_div {
+                margin-left: calc(50% - 256px);
+                margin-top: 100px;
+            }
