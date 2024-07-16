@@ -220,7 +220,7 @@ body {
 
     animation-timeline: --image;
     animation-name: showing_elements;
-    animation-range: entry 40% cover 50%;
+    animation-range: entry 30% cover 40%;
     animation-fill-mode: both;
 }
 /************************************************/
