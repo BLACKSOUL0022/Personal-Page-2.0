@@ -140,7 +140,6 @@ body {
         }
         .proyects {
             box-sizing: border-box;
-            outline: 1px solid #fff;
             height: 800px;
             padding: 25px;
             width: 100%;
