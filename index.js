@@ -18,7 +18,7 @@ container.appendChild(renderer.domElement);
 
 // Ajustes de la cámara
 camera.position.set(0, 0, 15); // Posición de la cámara (x, y, z)
-camera.lookAt(6, -2.8, 0); // Dirección en la que mira la cámara (x, y, z)
+camera.lookAt(6, -2.5, 0); // Dirección en la que mira la cámara (x, y, z)
 camera.fov = 75; // Campo de visión en grados
 camera.updateProjectionMatrix(); // Actualizar la matriz de proyección
 
@@ -28,7 +28,7 @@ const renderScene = new RenderPass(scene, camera);
 const bloomPass = new UnrealBloomPass(
     new THREE.Vector2(container.clientWidth, container.clientHeight),
     1,  // Strength
-    0.1,  // Radius
+    0,  // Radius
     0  // Threshold
 );
 bloomPass.renderToScreen = true;
@@ -100,5 +100,12 @@ window.addEventListener('resize', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(container.clientWidth, container.clientHeight);
-    composer.setSize(container.clientWidth, container.clientHeight); // Ajustar el tamaño del compositor
+    composer.setSize(container.clientWidth/2, container.clientHeight/2); // Ajustar el tamaño del compositor
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    composer.setSize(container.clientWidth/2, container.clientHeight/2); // Ajustar el tamaño del compositor
 });

@@ -59,20 +59,12 @@ body {
         box-shadow: 0 0 0 0px #4fc3dc44,
         0 0 50px #4fc3dc, 
         0 0 50px #4fc3dc;
-        animation: animate linear infinite;
+        animation: animate_lights linear infinite;
         animation-duration: calc(1000s / var(--i)); 
     }
     .bubbles span:nth-child(even) {
         background-color: rgba(255, 255, 255, 100);
         box-shadow: 0 0 0 0px #58581d, 0 0 50px #fff, 0 0 50px #fff;
-    }
-    @keyframes animate {
-        0% {
-            transform: translateY(300vh) scale(0);
-        }
-        100% {
-            transform: translateY(0vh) scale(1);
-        }
     }
 
 #container {
@@ -111,17 +103,17 @@ body {
         }
         #contact_btn {
             align-items: center;
-            border-radius: 30px;
+            border-radius: 60px;
             border: none;
             display: flex;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 20px;
+            font-size: 40px;
             font-weight: 300;
-            height: 40px;
+            height: 80px;
             justify-content: center;
             margin-inline: auto;
-            margin-top: 50px;
-            width: 160px;
+            margin-top: 150px;
+            width: 320px;
         }
             #contact_btn:hover {
                 box-shadow: 0 0 15px #ffffff;
@@ -133,10 +125,10 @@ body {
                 text-shadow: 0 0 5px #ffffff;
             }
     #first_section {
-        min-height: calc(100vh -170px);
+        height: calc(80vh - 170px);
     }
         .section_content {
-            margin-top: 50px;
+            margin-top: 100px;
         }
         .proyects {
             box-sizing: border-box;
@@ -199,11 +191,40 @@ body {
         width: 100vw;
     }
         #footer_text {
-            color: #333;
+            color: #444;
             margin: 20px;
         }
+/* Animations */
+@keyframes animate_lights {
+    0% {
+        transform: translateY(300vh) scale(0);
+    }
+    100% {
+        transform: translateY(0vh) scale(1);
+    }
+}
 
+@keyframes showing_elements {
+    from {
+        opacity: 0;
+        scale: 25%;
+    }
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
+}
 
+.section_ {
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name: showing_elements;
+    animation-range: entry 40% cover 50%;
+    animation-fill-mode: both;
+}
+/************************************************/
 /* Desktop */
 
 @media (min-width: 720px){
