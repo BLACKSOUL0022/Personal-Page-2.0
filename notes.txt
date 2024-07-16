@@ -21,3 +21,7 @@ and (orientation: portrait)
                 margin-left: calc(50% - 256px);
                 margin-top: 100px;
             }
+
+
+
+renderer.setSize(container.clientWidth, container.clientHeight);

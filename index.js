@@ -13,7 +13,6 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio); // Ajustar el pixel ratio según el dispositivo
-renderer.setSize(container.clientWidth, container.clientHeight);
 container.appendChild(renderer.domElement);
 
 // Ajustes de la cámara
@@ -100,12 +99,12 @@ window.addEventListener('resize', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(container.clientWidth, container.clientHeight);
-    composer.setSize(container.clientWidth/2, container.clientHeight/2); // Ajustar el tamaño del compositor
+    composer.setSize(container.clientWidth/4, container.clientHeight/4); // Ajustar el tamaño del compositor
 });
 
 window.addEventListener('DOMContentLoaded', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(container.clientWidth, container.clientHeight);
-    composer.setSize(container.clientWidth/2, container.clientHeight/2); // Ajustar el tamaño del compositor
+    composer.setSize(container.clientWidth/4, container.clientHeight/4); // Ajustar el tamaño del compositor
 });
